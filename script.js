@@ -1,13 +1,11 @@
-//your code here!
-const list = document.getElementById("list");
+const list = document.getElementById("infi-list");
 
-let count = 10;
+let count = 0;
 
-// Add list items
 function addItems(number) {
     for (let i = 0; i < number; i++) {
         const li = document.createElement("li");
-        li.textContent = `List Item ${count + 1}`;
+        li.textContent = `Item ${count + 1}`;
         list.appendChild(li);
         count++;
     }
@@ -16,9 +14,9 @@ function addItems(number) {
 // Add 10 items initially
 addItems(10);
 
-// Add 2 items when reaching the end
-window.addEventListener("scroll", function () {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 5) {
+// Add 2 items when the list reaches the end
+list.addEventListener("scroll", function () {
+    if (list.scrollTop + list.clientHeight >= list.scrollHeight - 5) {
         addItems(2);
     }
 });
